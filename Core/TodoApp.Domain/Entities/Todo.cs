@@ -7,8 +7,8 @@ namespace TodoApp.Domain.Entities
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public int TagID { get; set; }
-        public Tag Tag { get; set; }
+        public int TagId { get; set; }
+        public Tag Tags { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsFavorite { get; set; }
