@@ -12,7 +12,7 @@ using TodoApp.Persistence.Context;
 namespace TodoApp.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240907210206_Initial-commit-Application")]
+    [Migration("20240908115023_Initial-commit-Application")]
     partial class InitialcommitApplication
     {
         /// <inheritdoc />
@@ -63,10 +63,7 @@ namespace TodoApp.Persistence.Migrations.Application
                     b.Property<bool>("IsFavorite")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("TagsId")
+                    b.Property<Guid?>("TagId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
@@ -74,18 +71,16 @@ namespace TodoApp.Persistence.Migrations.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TagsId");
+                    b.HasIndex("TagId");
 
                     b.ToTable("Todos");
                 });
 
             modelBuilder.Entity("TodoApp.Domain.Entities.Todo", b =>
                 {
-                    b.HasOne("TodoApp.Domain.Entities.Tag", "Tags")
+                    b.HasOne("TodoApp.Domain.Entities.Tag", null)
                         .WithMany("Todos")
-                        .HasForeignKey("TagsId");
-
-                    b.Navigation("Tags");
+                        .HasForeignKey("TagId");
                 });
 
             modelBuilder.Entity("TodoApp.Domain.Entities.Tag", b =>
