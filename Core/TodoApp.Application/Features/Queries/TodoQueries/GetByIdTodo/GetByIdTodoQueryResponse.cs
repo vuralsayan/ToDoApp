@@ -1,10 +1,9 @@
 ﻿#nullable disable
-using TodoApp.Domain.Common;
-
-namespace TodoApp.Domain.Entities
+namespace TodoApp.Application.Features.Queries.TodoQueries.GetByIdTodo
 {
-    public class Todo : BaseEntity
+    public class GetByIdTodoQueryResponse
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }

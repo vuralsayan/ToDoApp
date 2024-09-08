@@ -1,9 +1,9 @@
 ﻿#nullable disable
-using TodoApp.Domain.Common;
+using MediatR;
 
-namespace TodoApp.Domain.Entities
+namespace TodoApp.Application.Features.Commands.TodoCommands.CreateTodo
 {
-    public class Todo : BaseEntity
+    public class CreateTodoCommand : IRequest<Guid>
     {
         public string Title { get; set; }
         public string Description { get; set; }

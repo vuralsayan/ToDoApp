@@ -1,10 +1,11 @@
 ﻿#nullable disable
-using TodoApp.Domain.Common;
+using MediatR;
 
-namespace TodoApp.Domain.Entities
+namespace TodoApp.Application.Features.Commands.TodoCommands.UpdateTodo
 {
-    public class Todo : BaseEntity
+    public class UpdateTodoCommand : IRequest<Guid>
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }

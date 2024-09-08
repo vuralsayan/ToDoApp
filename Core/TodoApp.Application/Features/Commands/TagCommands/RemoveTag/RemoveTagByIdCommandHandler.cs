@@ -8,12 +8,10 @@ namespace TodoApp.Application.Features.Commands.TagCommands.RemoveTag
     public class RemoveTagByIdCommandHandler : IRequestHandler<RemoveTagByIdCommand, Guid>
     {
         private readonly IRepository<Tag> _repository;
-        private readonly IMapper _mapper;
 
-        public RemoveTagByIdCommandHandler(IRepository<Tag> repository, IMapper mapper)
+        public RemoveTagByIdCommandHandler(IRepository<Tag> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public async Task<Guid> Handle(RemoveTagByIdCommand request, CancellationToken cancellationToken)
@@ -23,11 +21,8 @@ namespace TodoApp.Application.Features.Commands.TagCommands.RemoveTag
             {
                 throw new Exception("Tag not found.");
             }
-            else
-            {
-                await _repository.RemoveAsync(tag);
-                return tag.Id;
-            }
+            await _repository.RemoveAsync(tag);
+            return tag.Id;
         }
     }
 }
