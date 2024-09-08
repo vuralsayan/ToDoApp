@@ -1,0 +1,22 @@
+﻿using AutoMapper;
+using TodoApp.Application.Features.Commands.TagCommands.CreateTag;
+using TodoApp.Application.Features.Commands.TagCommands.UpdateTag;
+using TodoApp.Application.Features.Queries.TagQueries.GetAllTag;
+using TodoApp.Application.Features.Queries.TagQueries.GetByIdTag;
+using TodoApp.Domain.Entities;
+
+namespace TodoApp.Application.Mapping
+{
+    public class GeneralMapping : Profile
+    {
+        public GeneralMapping()
+        {
+            //Tag Mapping
+            CreateMap<Tag, GetAllTagQueryResponse>().ReverseMap();
+            CreateMap<Tag, GetByIdQueryResponse>().ReverseMap();
+            CreateMap<Tag, CreateTagCommand>().ReverseMap();
+            CreateMap<Tag, UpdateTagCommand>().ReverseMap();
+
+        }
+    }
+}
