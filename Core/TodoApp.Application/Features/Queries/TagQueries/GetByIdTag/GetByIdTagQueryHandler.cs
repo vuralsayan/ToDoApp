@@ -5,21 +5,21 @@ using TodoApp.Domain.Entities;
 
 namespace TodoApp.Application.Features.Queries.TagQueries.GetByIdTag
 {
-    public class GetByIdQueryHandler : IRequestHandler<GetByIdQueryRequest, GetByIdQueryResponse>
+    public class GetByIdTagQueryHandler : IRequestHandler<GetByIdTagQueryRequest, GetByIdTagQueryResponse>
     {
         private readonly IRepository<Tag> _repository;
         private readonly IMapper _mapper;
 
-        public GetByIdQueryHandler(IRepository<Tag> repository, IMapper mapper)
+        public GetByIdTagQueryHandler(IRepository<Tag> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<GetByIdQueryResponse> Handle(GetByIdQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GetByIdTagQueryResponse> Handle(GetByIdTagQueryRequest request, CancellationToken cancellationToken)
         {
             var tag = await _repository.GetByIdAsync(request.Id);
-            return _mapper.Map<GetByIdQueryResponse>(tag);
+            return _mapper.Map<GetByIdTagQueryResponse>(tag);
         }
     }
 }

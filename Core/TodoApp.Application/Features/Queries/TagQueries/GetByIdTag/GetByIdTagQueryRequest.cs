@@ -2,9 +2,9 @@
 
 namespace TodoApp.Application.Features.Queries.TagQueries.GetByIdTag
 {
-    public class GetByIdQueryRequest : IRequest<GetByIdQueryResponse>
+    public class GetByIdTagQueryRequest : IRequest<GetByIdTagQueryResponse>
     {
-        public GetByIdQueryRequest(Guid id)
+        public GetByIdTagQueryRequest(Guid id)
         {
             Id = id;
         }

@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\TodoApp.Infrastructure\TodoApp.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\TodoApp.Persistence\TodoApp.Persistence.csproj" />
   </ItemGroup>

@@ -23,7 +23,6 @@ namespace TodoApp.Application.Features.Commands.TagCommands.UpdateTag
             {
                 throw new Exception("Tag not found");
             }
-
             _mapper.Map(request, tag);
             await _repository.UpdateAsync(tag);
             return tag.Id;

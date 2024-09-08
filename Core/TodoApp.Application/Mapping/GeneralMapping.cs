@@ -13,7 +13,7 @@ namespace TodoApp.Application.Mapping
         {
             //Tag Mapping
             CreateMap<Tag, GetAllTagQueryResponse>().ReverseMap();
-            CreateMap<Tag, GetByIdQueryResponse>().ReverseMap();
+            CreateMap<Tag, GetByIdTagQueryResponse>().ReverseMap();
             CreateMap<Tag, CreateTagCommand>().ReverseMap();
             CreateMap<Tag, UpdateTagCommand>().ReverseMap();
 
