@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TodoApp.Application.Auth;
 using TodoApp.Application.Interfaces.Context;
+using TodoApp.Application.Interfaces.Repositories;
 using TodoApp.Persistence.Context;
+using TodoApp.Persistence.Repositories;
 
 namespace TodoApp.Persistence
 {
@@ -23,6 +25,7 @@ namespace TodoApp.Persistence
                 .AddDefaultTokenProviders();
 
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
     }
 }
